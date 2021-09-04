@@ -59,12 +59,12 @@ export default (props) => {
   const handleClose = (param) => {
     setPedido(
       {
+        index: props.index,
         item: props.titulo,
         adicionais: param.adicionais,
         molho: param.molho,
         quantidade: param.quantidade,
         valor: props.valor
-  
       }
     );
     setOpen(false);

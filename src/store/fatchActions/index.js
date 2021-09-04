@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getCardapio } from "../cardapioReducer/cardapio";
-import { addCesta } from "../compraReducer/cesta";
+import { addCesta, removeItemCesta } from "../compraReducer/cesta";
 
 
 
@@ -14,9 +14,14 @@ export const getCardapioAxios = () => {
   };
 };
 
-
 export const addItemCesta = (cesta) => {
   return async(dispatch) => {
       await dispatch(addCesta(cesta))
+  }
+}
+
+export const RemoveItemPedido = (param) => {
+  return async(dispatch) => {
+      await dispatch(removeItemCesta(param))
   }
 }

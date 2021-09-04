@@ -1,11 +1,15 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-const INITIAL_STATE = [];
 
-export const getCardapio = createAction("GET_CARDAPIO");
-
-export default createReducer(INITIAL_STATE, {
-  [getCardapio.type]: (state, action) => {
-    return  [...action.payload];
+const cardapioSlicer = createSlice({
+  name: 'cardapio',
+  initialState: [],
+  reducers: {
+    getCardapio(state, action) {
+      return [...action.payload]
+    },
   },
-});
+})
+
+export const { getCardapio } = cardapioSlicer.actions
+export default cardapioSlicer.reducer

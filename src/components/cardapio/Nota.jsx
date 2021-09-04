@@ -14,7 +14,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Paper from "@material-ui/core/Paper";
 import Carrinho from "./CarrinhoLista";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -60,7 +60,7 @@ function getStepContent(step, param) {
   switch (step) {
     case 0:
       return param.map((pedido, index) => {
-        return <Carrinho item={pedido.item} valor={pedido.valor} key={index} />;
+        return <Carrinho item={pedido.item} valor={pedido.valor} key={index} index={index}/>;
       });
     case 1:
       return "An ad group contains one or more ads which target a shared set of keywords.";

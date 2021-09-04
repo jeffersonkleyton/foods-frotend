@@ -11,7 +11,6 @@ import CardapioCard from "./CardapioCard";
 import { useSelector, useDispatch } from "react-redux";
 import { getCardapioAxios } from "../../store/fatchActions/index";
 import { io } from "socket.io-client";
-import DialogAddItem from "./DialogAddItem";
 
 const socket = io("http://localhost:4000/");
 const useStyles = makeStyles((theme) => ({
@@ -86,7 +85,6 @@ export default function Categorias(props) {
   }, [dispatch]);
 
   const cardapio = useSelector((state) => state.cardapio);
-
   return (
     <Box className={classes.root}>
       <Header
@@ -106,6 +104,7 @@ export default function Categorias(props) {
                   titulo={card.item}
                   valor={card.valor}
                   index={idx}
+                  key={idx}
                 />
             );
           })}

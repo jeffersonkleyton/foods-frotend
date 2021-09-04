@@ -71,6 +71,7 @@ export default function FullScreenDialog(props) {
 
     if (activeStep === steps.length - 1) {
       const obj = {
+        posicao: props.index,
         adicionais: adicionais,
         molho: molho,
         observacao: observacao,
@@ -106,6 +107,10 @@ export default function FullScreenDialog(props) {
     setObservacao(event.target.value);
     //    dispatch(addItemCesta(pedido));
   };
+
+  function editar() {
+    setActiveStep(0);
+  }
 
   useEffect(() => {}, []);
 
@@ -206,7 +211,7 @@ export default function FullScreenDialog(props) {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Button onClick={handleBack} className={classes.button}>
+            <Button onClick={editar} className={classes.button}>
               voltar
             </Button>
           </Paper>
